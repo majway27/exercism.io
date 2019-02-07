@@ -1,6 +1,8 @@
 virtualenvironmentgeneric
 .idea
 .solution.json
+exercism
+shell
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
