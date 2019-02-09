@@ -1,7 +1,7 @@
-import logging
 import string
+import logging
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level="INFO")
 
 
 def is_pangram(sentence):
@@ -13,14 +13,21 @@ def is_pangram(sentence):
     :param sentence: String to check
     :return: true or false
     """
-    alphabet = string.ascii_lowercase[:26]
-    if isinstance(sentence,str):
-        logging.info("You entered a string Bob")
+    alphabet = string.ascii_lowercase
+    if isinstance(sentence, str):
+        logging.info("Starting, for string: " + sentence)
+        sentence = sorted(set(sentence.lower()))
+        prepped_string = ''.join([s for s in sentence if (96 < ord(s) < 144)])
+        print(prepped_string)
+        if prepped_string == alphabet:
+            print('Yes')
+            return True
+        else:
+            print('No')
+            return False
+
     else:
         raise Exception("A type other than String was inputted.")
-    # create a set to eliminate dupes
-    sentence_set = {sentence.split()}
-    print(sentence_set)
-    # order string
-    # compare to reference alphabet range
-    # decide
+
+
+is_pangram("Five quacking Zephyrs jolt my wax bed.")
